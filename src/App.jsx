@@ -1,6 +1,7 @@
 // import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import AdminLayout from "./layout/adminLayout";
+import AdminCreatePage from "./modules/Admin/page/create";
 import LoginPage from "./modules/Auth/page/login";
 import ProductIndexPage from "./modules/Product/page";
 import ProductCreatePage from "./modules/Product/page/create";
@@ -13,6 +14,7 @@ function App() {
       <Route path='/' element={<AdminLayout />}>
         <Route element={<ProductIndexPage />} path='/product/index' />
         <Route element={<ProductCreatePage />} path='/product/create' />
+        <Route element={<AdminCreatePage />} path='/admin/create' />
       </Route>
     </Routes>
   );
