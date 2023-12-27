@@ -9,6 +9,8 @@ import NotFoundPage from "./page/notFound";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AdminIndexPage from "./modules/Admin/page";
+import AdminUpdatePage from "./modules/Admin/page/update";
 function App() {
   return (
     <>
@@ -21,6 +23,8 @@ function App() {
           <Route element={<ProductIndexPage />} path='/product/index' />
           <Route element={<ProductCreatePage />} path='/product/create' />
           <Route element={<AdminCreatePage />} path='/admin/create' />
+          <Route element={<AdminIndexPage />} path='/admin/index' />
+          <Route element={<AdminUpdatePage />} path='/admin/:admin_id/update' />
         </Route>
       </Routes>
     </>
