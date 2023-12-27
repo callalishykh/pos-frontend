@@ -1,5 +1,7 @@
 import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
 import { object, string } from "yup";
+import axiosInstance from "../../../utils/axios";
+import { toast } from "react-toastify";
 
 let adminSchema = object({
   name: string().required(),
@@ -8,6 +10,23 @@ let adminSchema = object({
 });
 
 const AdminCreatePage = () => {
+  const createAdminCall = async (data) => {
+    return axiosInstance.post("/admin", data);
+  };
+
+  const handleAdminCreate = async (data) => {
+    try {
+      const response = await createAdminCall(data);
+      toast.success(response.data.message);
+      formik.resetForm();
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message
+        // error.response && error.response.data && error.response.data.message
+      );
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -15,7 +34,7 @@ const AdminCreatePage = () => {
       password: "",
     },
     validationSchema: adminSchema,
-    onSubmit: (values) => console.log("This is submitted values", values),
+    onSubmit: (values) => handleAdminCreate(values),
   });
 
   return (
