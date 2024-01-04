@@ -1,4 +1,4 @@
-import axiosInstance from "../../../utils/axios";
+import useAxios from "../../../utils/axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AdminIndexPage = () => {
   const [admins, setAdmins] = useState([]);
   const navigate = useNavigate();
-
+  const axiosInstance = useAxios();
   const getAdminsCall = async () => {
     return axiosInstance.get("/admins");
   };
