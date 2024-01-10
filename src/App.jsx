@@ -40,9 +40,9 @@ function App() {
           />
           <Route
             element={
-              <ProtectedRoute user={null}>
-                <ProductCreatePage />
-              </ProtectedRoute>
+              // <ProtectedRoute user={null}>
+              <ProductCreatePage />
+              // </ProtectedRoute>
             }
             path='/product/create'
           />
